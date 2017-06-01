@@ -99,3 +99,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+
+#custom entries and configurations
+url.py
+*student_work*
+
