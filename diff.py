@@ -35,28 +35,30 @@ class diff():
         print "---- DONE ----"
         return project_folder
 
-    def GetAllEntries(self,repo)#todo change loop to remove redundancies
+    def GetAllEntries(self,repo):#todo change loop to remove redundancies
         for student1,url1 in urls.iteritems():
             for student2,url2 in urls.iteritems():
-                print("downlaoded ->",self.GetCodeFromGithub(url1,student1)
-                print("downlaoded ->",self.GetCodeFromGithub(url2,student2)
+                print("downlaoded ->",self.GetCodeFromGithub(url1,student1))
+                print("downlaoded ->",self.GetCodeFromGithub(url2,student2))
 
     def CompareTwoEntries(self,entryPath1,entryPath2):
         print entryPath1
         print("------")
         print entryPath2
     def CompareAllEntries(self):
+        try:
+            os.stat(DIR_NAME)
+        except:
+            os.mkdir(DIR_NAME)
+        if os.path.isdir(self.master):
+            shutil.rmtree(self.master)
 
-            try:
-                os.stat(DIR_NAME)
-            except:
-                os.mkdir(DIR_NAME)
-            if os.path.isdir(self.master):
-                shutil.rmtree(self.master)
+        os.mkdir(master)
+        repo = git.Repo.init(self.master)
 
-            os.mkdir(master)
-            repo = git.Repo.init(self.master)
 
-        pass
+
+
 d1 = diff()
+
 d1.GetAllEntries("DiceDuels")
