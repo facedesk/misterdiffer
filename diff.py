@@ -6,6 +6,10 @@ class diff():
         self.DIR_NAME = "student_work"
         self.master = os.path.join(self.DIR_NAME,"master")
         self.project_name="DiceDuels"
+        try:
+            os.stat(self.DIR_NAME)
+        except:
+            os.mkdir(self.DIR_NAME)
 
 
 
@@ -46,10 +50,6 @@ class diff():
         print("------")
         print entryPath2
     def CompareAllEntries(self):
-        try:
-            os.stat(DIR_NAME)
-        except:
-            os.mkdir(DIR_NAME)
         if os.path.isdir(self.master):
             shutil.rmtree(self.master)
 
